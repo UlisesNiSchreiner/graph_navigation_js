@@ -1,0 +1,44 @@
+name: Node.js CI Coverage
+
+on:
+  push:
+    branches:
+      - '*'
+  pull_request:
+    branches:
+      - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20]
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Use Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run tests and collect coverage
+      run: npm test -- --coverage
+
+    - name: Check coverage threshold
+      run: |
+        COVERAGE_THRESHOLD=0
+        CURRENT_COVERAGE=$(awk '/All files/{print substr($NF, 1, length($NF)-1)}' coverage/lcov-report/index.html)
+        if [ $(echo "$CURRENT_COVERAGE >= $COVERAGE_THRESHOLD" | bc -l) -eq 1 ]; then
+          echo "Coverage is above threshold. Proceeding..."
+          exit 0
+        else
+          echo "Coverage is below threshold. Please improve the coverage."
+          exit 1
+        fi
