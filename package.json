@@ -1,5 +1,5 @@
 {
-  "name": "test_fluxjs",
+  "name": "graph-navigation-js",
   "version": "0.1.6",
   "description": "Middleend architecture library",
   "main": "index.js",
