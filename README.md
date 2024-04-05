@@ -1,7 +1,10 @@
-# Flux - JS
+# Graph navigationJS
 
 ## Introduction
-FluxJS is a library that allows us to set up an middleeend architecture for our client-server applications.
+GraphNavigationJS is a library that allows us to set up an middleeend architecture for our client-server applications.
+In this case, we see the implementation of the library to create a middleend that will be consumed by a web desktop version, a web mobile version, and an Android mobile version. We can see from the wordings on the first screen how the middleend can handle different versions for each type of client.
+
+![Rest-01](docs/videos/show_01.gif)
 
 ## Rest architecture vs Middleend architecture
 
@@ -38,4 +41,5 @@ The library is compossed by three parts.
 + Server: Encharged of build the steps graph and manage the server navigation.
 
 Library content
+
 ![Lib-01](docs/images/lib-01.png)
