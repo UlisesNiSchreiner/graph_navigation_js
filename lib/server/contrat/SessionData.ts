@@ -12,7 +12,7 @@ export default class SessionData {
 
   getDataInSession<T>(key: string): T | null {
     const data = this.data[key] 
-    if (data === undefined || data === null || !(key in data)) {
+    if (data === undefined || data === null || !(key in this.data)) {
       return null;
     }
     return data as T;
