@@ -10,8 +10,12 @@ export default class SessionData {
     };
   }
 
-  getDataInSession(key: string): any {
-    return this.data[key];
+  getDataInSession<T>(key: string): T | null {
+    const data = this.data[key] 
+    if (data === undefined || data === null || !(key in data)) {
+      return null;
+    }
+    return data as T;
   }
 
   static TODO() {

@@ -77,6 +77,7 @@ export class Version extends Graph {
   public async versionPostNavigate(context: Context): Promise<Response> {
     context.session = SessionData.TODO();
     const newSesion = await this.sessionClient.createSesion();
+    console.log("session id", newSesion.id)
     context.session.data! = newSesion.data;
     context.session?.id == newSesion.id;
 
@@ -95,10 +96,11 @@ export class Version extends Graph {
   }
 
   public async versionPutNavigate(context: Context): Promise<Response> {
-    context.session = SessionData.TODO();
+    context.session = SessionData.TODO(); // TODO remove is by default
     const actualSession = await this.sessionClient.getSesion(
       context.request.session!
     );
+    console.log("session id", actualSession.id)
     context.session.data! = actualSession.data;
     context.session?.id == actualSession.id;
 

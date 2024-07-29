@@ -55,7 +55,10 @@ export default class Graph extends Node {
     nodeFromConnections.stepTo = nodeTo.id;
     nodeFromConnections.forceSync = forceSync;
 
-    this.addNodeToGraph(nodeTo);
+    if (!this.checkIfNodeExistInGraph(nodeTo.id)) {
+      this.addNodeToGraph(nodeTo);
+    }
+
     if (this.checkIfNodeExistInGraph(nodeFrom.id)) {
       this.addConnectionInNodeGraph(nodeFrom.id, nodeFromConnections);
     } else {
@@ -77,7 +80,11 @@ export default class Graph extends Node {
     nodeFromConnections.forceSync = forceSync;
     nodeFrom.addOrRemplaceConnection(nodeFromConnections);
 
-    this.addNodeToGraph(nodeTo);
+    //this.addNodeToGraph(nodeTo);
+    if (!this.checkIfNodeExistInGraph(nodeTo.id)) {
+      this.addNodeToGraph(nodeTo);
+    }
+
     if (this.checkIfNodeExistInGraph(nodeFrom.id)) {
       this.addConnectionInNodeGraph(nodeFrom.id, nodeFromConnections);
     } else {

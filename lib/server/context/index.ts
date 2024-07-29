@@ -10,7 +10,7 @@ export class Context {
   component?: Component[] = [];
   stepProxy?: StepProxy;
   dataProxy?: DataProxy;
-  session?: SessionData;
+  session: SessionData = SessionData.TODO();
 
   constructor(request: Request) {
     this.request = request;
@@ -19,7 +19,15 @@ export class Context {
     this.dataProxy = new DataProxy();
   }
 
-  getOutput(key: string) {
-    return this.request.data;
+  getDataFromOutput<T>(key: string): T | null {
+    const output = (this.request.data as { output: Record<string, any> })?.output;
+    if (output === undefined || output === null || !(key in output)) {
+      return null;
+    }
+    return output[key] as T;
   }
+  
+  getDataFromSession = <T>(key: string): T | null => this.session.getDataInSession<T>(key)
+
+  setDataInSession = <T>(key: string, value: T): void => this.session.setDataInSession<T>(key, value)
 }
