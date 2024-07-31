@@ -1,11 +1,27 @@
 export class DataProxy {
-  data: Map<string, any> = new Map();
+  data: Record<string, any> = {};
+  private static _instance: DataProxy | null = null;
 
-  putData(key: string, value: any) {
-    this.data.set(key, value);
+  putData<T>(key: string, value: T) {
+    this.data = {
+      ...this.data,
+      [key]: value,
+    };
   }
 
-  getData(key: string) {
-    return this.data.get(key);
+  getData<T>(key: string): T | null {
+    const data = this.data[key] 
+    if (data === undefined || data === null || !(key in this.data)) {
+      return null;
+    }
+    return data as T;
+  }
+
+  static TODO() {
+    if (!DataProxy._instance) {
+      DataProxy._instance = new DataProxy();
+    }
+    DataProxy._instance.data = {};
+    return DataProxy._instance;
   }
 }

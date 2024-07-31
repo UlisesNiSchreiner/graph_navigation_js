@@ -11,15 +11,7 @@ export class Request {
 
     constructor() {}
 
-   /* getDataInOutput<T>(key: string): T | null {
-      const output = (this.data as { output: Record<string, any> })?.output;
-      if (output === undefined || output === null || !(key in output)) {
-        return null;
-      }
-      return output[key] as T;
-    }*/
-
-    getDataInOutput = <T>(key: string): T | null => {
+    getData = <T>(key: string): T | null => {
       const output = (this.data as { output: Record<string, any> })?.output;
       if (output === undefined || output === null || !(key in output)) {
         return null;
@@ -31,7 +23,7 @@ export class Request {
       if (!Request._instance) {
         Request._instance = new Request();
       }
-   
+      Request._instance.data = {output: {}}
       return Request._instance;
     }    
   }

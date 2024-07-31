@@ -5,11 +5,11 @@ import { StepProxy } from './StepProxy';
 import { DataProxy } from './DataProxy';
 
 export class Context {
-  request: Request;
+  request: Request = Request.TODO();
   data: object;
   component?: Component[] = [];
   stepProxy?: StepProxy;
-  dataProxy?: DataProxy;
+  dataProxy: DataProxy = DataProxy.TODO();
   session: SessionData = SessionData.TODO();
 
   constructor(request: Request) {
@@ -26,8 +26,14 @@ export class Context {
     }
     return output[key] as T;
   }
+
+  getDataFromOutputBis = <T>(key: string): T | null => this.request.getData<T>(key)
   
   getDataFromSession = <T>(key: string): T | null => this.session.getDataInSession<T>(key)
 
   setDataInSession = <T>(key: string, value: T): void => this.session.setDataInSession<T>(key, value)
+
+  getDataFromContext = <T>(key: string): T | null => this.dataProxy.getData<T>(key)
+
+  setDataInContext = <T>(key: string, value: T): void => this.dataProxy.putData<T>(key, value)
 }

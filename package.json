@@ -8,11 +8,13 @@
   },
   "scripts": {
     "test": "nyc ts-mocha lib/**/*.test.ts",
-    "watch": "cp README.md dist && ts-node generate-package-json.ts && tsc -w",
     "build": "cp README.md dist && ts-node generate-package-json.ts && tsc",
+    "watch": "cp README.md dist && ts-node generate-package-json.ts && tsc -w",
     "lint": "eslint . --ext .ts --fix --ignore-pattern dist",
     "publish-version": "cd dist && npm publish",
-    "version-patch": "cd dist && npm version patch && npm publish"
+    "version-patch": "cd dist && npm version patch && npm publish",
+    "build-version-patch": "npm version patch && cp README.md dist && ts-node generate-package-json.ts && tsc && cd dist && npm publish",
+    "build-version-patch-bis": "npm version patch && npm run build && cd dist && npm publish"
   },
   "repository": {
     "type": "git",
