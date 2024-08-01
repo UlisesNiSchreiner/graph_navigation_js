@@ -2,7 +2,7 @@ import * as assert from 'assert';
 import Graph from './Graph';
 import ViewStep from './ViewStep';
 import { Context } from '../context';
-import { RequestData } from 'lib/api';
+import { RequestData } from '../../api/contract/RequestData';
 
 describe('Graph unit test', () => {
 

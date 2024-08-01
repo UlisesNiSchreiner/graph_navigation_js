@@ -4,7 +4,7 @@ import ViewStep from "../graph/ViewStep";
 import { Context } from "../context";
 import SessionClient from "../contrat/SessionClient";
 import SessionData from "../contrat/SessionData";
-import { RequestData } from "lib/api";
+import { RequestData } from '../../api/contract/RequestData';
 
 describe("Version unit test", () => {
   class SessionClientMock extends SessionClient {

@@ -1,4 +1,4 @@
-import { RequestData } from "lib/api";
+import { RequestData } from '../../api/contract/RequestData';
 
 export default class HttpClient {
   constructor() {}
