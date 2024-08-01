@@ -8,6 +8,6 @@ export {
   Connection,
   Event,
   Platform,
-  RequestData as Request,
+  RequestData,
   Response
 }
