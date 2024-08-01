@@ -2,10 +2,10 @@ import SessionData from "../contrat/SessionData";
 import { Component } from '../../api/contract/Component';
 import { StepProxy } from './StepProxy';
 import { DataProxy } from './DataProxy';
-import { RequestData } from "lib/api/contract/Request";
+import { RequestData } from "lib/api/contract/RequestData";
 
 export class Context {
-  requestData: RequestData = Request.TODO();
+  requestData: RequestData = RequestData.TODO();
   data: object;
   component?: Component[] = [];
   stepProxy?: StepProxy;
