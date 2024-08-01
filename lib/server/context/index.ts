@@ -28,7 +28,11 @@ export class Context {
     return output[key] as T;
   }
 
-  getDataFromOutputBis = <T>(key: string): T | null => this.request.getData<T>(key)
+  getDataFromOutputBis<T>(key: string): T | null {
+    const request = this.request as Request
+    console.log("request ->", request)
+    return request.getData<T>(key)
+  }
   
   getDataFromSession = <T>(key: string): T | null => this.session.getDataInSession<T>(key)
 
