@@ -20,6 +20,7 @@ export class Context {
   }
 
   getDataFromOutput<T>(key: string): T | null {
+    console.log("request ->", this.request)
     const output = (this.request.data as { output: Record<string, any> })?.output;
     if (output === undefined || output === null || !(key in output)) {
       return null;
