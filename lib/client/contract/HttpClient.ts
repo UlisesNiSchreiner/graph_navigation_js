@@ -1,11 +1,11 @@
-import { Request } from "../../api";
+import { RequestData } from "lib/api";
 
 export default class HttpClient {
   constructor() {}
-  async post(request: Request): Promise<string> {
+  async post(request: RequestData): Promise<string> {
     return "{}";
   }
-  async put(request: Request): Promise<string> {
+  async put(request: RequestData): Promise<string> {
     return "{}";
   }
 }

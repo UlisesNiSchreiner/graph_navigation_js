@@ -1,10 +1,10 @@
 import * as assert from "assert";
 import { Version } from "./Version";
 import ViewStep from "../graph/ViewStep";
-import { Request } from "../../api";
 import { Context } from "../context";
 import SessionClient from "../contrat/SessionClient";
 import SessionData from "../contrat/SessionData";
+import { RequestData } from "lib/api";
 
 describe("Version unit test", () => {
   class SessionClientMock extends SessionClient {
@@ -31,7 +31,7 @@ describe("Version unit test", () => {
   it('test versionPostNavigate when navigation is executed then session, current step and steps are correct', async () => {
     const sessionClient = new SessionClientMock();
     const version = new Version(sessionClient);
-    const request = new Request();
+    const request = new RequestData();
     request.nextStep = "node_2";
     const context = new Context(request);
 
