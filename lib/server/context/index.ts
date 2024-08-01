@@ -28,15 +28,7 @@ export class Context {
     return output[key] as T;
   }
 
-  getDataFromOutputBis<T>(key: string): T | null {
-    const request = this.requestData as RequestData
-    console.log("request ->", request)
-    console.log("request.getData ->", (request as any).getData); // Verifica si el método está presente
-    if (typeof (request as any).getData !== 'function') {
-      throw new Error("getData is not a function on request instance");
-    }
-    return request.getData<T>(key)
-  }
+  getDataFromOutputBis = <T>(key: string): T | null => this.requestData.getData<T>(key)
   
   getDataFromSession = <T>(key: string): T | null => this.session.getDataInSession<T>(key)
 
