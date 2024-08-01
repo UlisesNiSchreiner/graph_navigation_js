@@ -35,7 +35,7 @@ export class Version extends Graph {
   async versionNavigation(context: Context): Promise<[string, Node[]]> {
     let shouldContinueNavigating = true;
     let firstStepIdToNavegate = null;
-    let actualStep = context.request.nextStep!;
+    let actualStep = context.requestData.nextStep!;
     const responseGraph: Node[] = [];
 
     while (shouldContinueNavigating) {
@@ -87,7 +87,7 @@ export class Version extends Graph {
     );
 
     response.session = newSesion.id;
-    response.currentStep = firstStepIdToNavegate || context.request.nextStep!;
+    response.currentStep = firstStepIdToNavegate || context.requestData.nextStep!;
 
     await this.sessionClient.updateSesion(newSesion.id, context.session?.data);
 
@@ -98,7 +98,7 @@ export class Version extends Graph {
   public async versionPutNavigate(context: Context): Promise<Response> {
     context.session = SessionData.TODO(); // TODO remove is by default
     const actualSession = await this.sessionClient.getSesion(
-      context.request.session!
+      context.requestData.session!
     );
     console.log("session id", actualSession.id)
     context.session.data! = actualSession.data;
@@ -110,7 +110,7 @@ export class Version extends Graph {
     );
 
     response.session = actualSession.id;
-    response.currentStep = firstStepIdToNavegate || context.request.nextStep!;
+    response.currentStep = firstStepIdToNavegate || context.requestData.nextStep!;
     response.steps = this.generateResultObject(responseGraph);
 
     await this.sessionClient.updateSesion(

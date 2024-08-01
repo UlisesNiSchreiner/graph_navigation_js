@@ -1,25 +1,15 @@
 export interface Data {
   output: Record<string, any>;
 }
-export class Request {
+export class RequestData {
     token?: string;
     session?: string;
     data?: Data = {output: {}};
     navigation?: string[];
     nextStep?: string;
-    private static _instance: Request | null = null;
+    private static _instance: RequestData | null = null;
 
-    //constructor() {}
-
-   /* getData = <T>(key: string): T | null => {
-      const output = (this.data as { output: Record<string, any> })?.output;
-      if (output === undefined || output === null || !(key in output)) {
-        return null;
-      }
-      return output[key] as T;
-    } */
-
-    getData<T>(key: string): T | null {
+   getData = <T>(key: string): T | null => {
       const output = (this.data as { output: Record<string, any> })?.output;
       if (output === undefined || output === null || !(key in output)) {
         return null;
@@ -28,10 +18,10 @@ export class Request {
     }
 
     static TODO() {
-      if (!Request._instance) {
-        Request._instance = new Request();
+      if (!RequestData._instance) {
+        RequestData._instance = new RequestData();
       }
-      Request._instance.data = {output: {}}
-      return Request._instance;
+      RequestData._instance.data = {output: {}}
+      return RequestData._instance;
     }    
   }

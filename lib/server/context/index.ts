@@ -1,27 +1,27 @@
-import { Request } from "../../api/index";
 import SessionData from "../contrat/SessionData";
 import { Component } from '../../api/contract/Component';
 import { StepProxy } from './StepProxy';
 import { DataProxy } from './DataProxy';
+import { RequestData } from "lib/api/contract/Request";
 
 export class Context {
-  request: Request = Request.TODO();
+  requestData: RequestData = Request.TODO();
   data: object;
   component?: Component[] = [];
   stepProxy?: StepProxy;
   dataProxy: DataProxy = DataProxy.TODO();
   session: SessionData = SessionData.TODO();
 
-  constructor(request: Request) {
-    this.request = request;
+  constructor(request: RequestData) {
+    this.requestData = request;
     this.data = {};
     this.stepProxy = new StepProxy();
     this.dataProxy = new DataProxy();
   }
 
   getDataFromOutput<T>(key: string): T | null {
-    console.log("request ->", this.request)
-    const output = (this.request.data as { output: Record<string, any> })?.output;
+    console.log("request ->", this.requestData)
+    const output = (this.requestData.data as { output: Record<string, any> })?.output;
     if (output === undefined || output === null || !(key in output)) {
       return null;
     }
@@ -29,7 +29,7 @@ export class Context {
   }
 
   getDataFromOutputBis<T>(key: string): T | null {
-    const request = this.request as Request
+    const request = this.requestData as RequestData
     console.log("request ->", request)
     console.log("request.getData ->", (request as any).getData); // Verifica si el método está presente
     if (typeof (request as any).getData !== 'function') {
