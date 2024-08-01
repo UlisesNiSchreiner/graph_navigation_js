@@ -3,14 +3,14 @@ export default class SessionData {
   data: Record<string, any> = {};
   private static _instance: SessionData | null = null;
 
-  setDataInSession<T>(key: string, value: T) {
+  putData<T>(key: string, value: T) {
     this.data = {
       ...this.data,
       [key]: value,
     };
   }
 
-  getDataInSession<T>(key: string): T | null {
+  getData<T>(key: string): T | null {
     const data = this.data[key] 
     if (data === undefined || data === null || !(key in this.data)) {
       return null;

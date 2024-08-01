@@ -27,12 +27,10 @@ export class Context {
     }
     return output[key] as T;
   }
-
-  getDataFromOutputBis = <T>(key: string): T | null => this.requestData.getData<T>(key)
   
-  getDataFromSession = <T>(key: string): T | null => this.session.getDataInSession<T>(key)
+  getDataFromSession = <T>(key: string): T | null => this.session.getData<T>(key)
 
-  setDataInSession = <T>(key: string, value: T): void => this.session.setDataInSession<T>(key, value)
+  setDataInSession = <T>(key: string, value: T): void => this.session.putData<T>(key, value)
 
   getDataFromContext = <T>(key: string): T | null => this.dataProxy.getData<T>(key)
 
