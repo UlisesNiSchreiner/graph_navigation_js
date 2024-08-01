@@ -31,6 +31,10 @@ export class Context {
   getDataFromOutputBis<T>(key: string): T | null {
     const request = this.request as Request
     console.log("request ->", request)
+    console.log("request.getData ->", (request as any).getData); // Verifica si el método está presente
+    if (typeof (request as any).getData !== 'function') {
+      throw new Error("getData is not a function on request instance");
+    }
     return request.getData<T>(key)
   }
   

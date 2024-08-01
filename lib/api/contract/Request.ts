@@ -9,7 +9,7 @@ export class Request {
     nextStep?: string;
     private static _instance: Request | null = null;
 
-    constructor() {}
+    //constructor() {}
 
     getData = <T>(key: string): T | null => {
       const output = (this.data as { output: Record<string, any> })?.output;
