@@ -1,5 +1,5 @@
 import ViewStep from "../server/graph/ViewStep";
-import { Request, Response, Connection } from "../api";
+import { RequestData, Response, Connection } from "../api";
 import ClientSessionStorage from "./contract/ClientSessionStorage";
 import HttpClient from "./contract/HttpClient";
 
@@ -56,7 +56,7 @@ export default class ClientNavigation {
     return response;
   }
 
-  private async fetchMiddleend(request: Request): Promise<Response> {
+  private async fetchMiddleend(request: RequestData): Promise<Response> {
     let crudeResponse;
     const sessionStored = String(request.session);
 
@@ -86,7 +86,7 @@ export default class ClientNavigation {
 
     // If is force sync or local graph is empty should fetch middleend
     if (shoudFetch) {
-      const request = new Request();
+      const request = new RequestData();
       request.data = {
         output: output,
       };
