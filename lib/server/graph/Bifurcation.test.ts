@@ -1,7 +1,7 @@
 import assert from "assert";
 import Bifurcation from "./Bifurcation";
 import { Context } from "../context";
-import { Connection, Request } from "../../api";
+import { Connection, RequestData } from "../../api";
 
 describe("Bifurcation unit test", function () {
   it("test bifurcation when is executed with false condition then nex step conection is on false connection", async () => {
@@ -12,7 +12,7 @@ describe("Bifurcation unit test", function () {
       on_true_connection: trueConnection,
       on_false_connection: falseConnection,
     };
-    const request = new Request();
+    const request = new RequestData();
     const context = new Context(request);
 
     bifurcation.condition = () => false;
@@ -28,7 +28,7 @@ describe("Bifurcation unit test", function () {
       on_true_connection: trueConnection,
       on_false_connection: falseConnection,
     };
-    const request = new Request();
+    const request = new RequestData();
     const context = new Context(request);
 
     bifurcation.condition = () => true;

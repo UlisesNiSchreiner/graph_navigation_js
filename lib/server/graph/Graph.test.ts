@@ -1,13 +1,13 @@
 import * as assert from 'assert';
 import Graph from './Graph';
 import ViewStep from './ViewStep';
-import { Request } from '../../api';
 import { Context } from '../context';
+import { RequestData } from 'lib/api';
 
 describe('Graph unit test', () => {
 
   it('test nexFrom when two steps are conected then the steo one has continue connection to step two', () => {
-    const request = new Request();
+    const request = new RequestData();
     const context = new Context(request);
     const graph = new Graph();
     const node1 = new ViewStep("node_1");
