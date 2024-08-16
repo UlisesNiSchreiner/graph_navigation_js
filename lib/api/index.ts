@@ -1,12 +1,12 @@
 import { Connection } from './contract/Connection';
-import { Event } from './contract/Event';
 import { Platform } from './contract/Platform';
+import { StepEvent } from './contract/StepEvent';
 import { RequestData } from './contract/RequestData';
 import { Response } from './contract/Response';
 
 export {
   Connection,
-  Event,
+  StepEvent,
   Platform,
   RequestData,
   Response

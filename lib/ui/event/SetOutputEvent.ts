@@ -1,6 +1,6 @@
-import { Event } from '../../api/contract/Event';
+import { StepEvent } from '../../api/contract/StepEvent';
 
-export class SetOutputEvent extends Event {
+export class SetOutputEvent extends StepEvent {
   type = "set_output_event";
   key: string = "";
   value: any;

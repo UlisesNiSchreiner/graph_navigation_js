@@ -1,6 +1,6 @@
-import { Event } from "../../api";
+import { StepEvent } from '../../api/contract/StepEvent';
 
-export class ConnectionEvent extends Event {
+export class ConnectionEvent extends StepEvent {
   type = "connection_event";
   conectionId: string = "";
 

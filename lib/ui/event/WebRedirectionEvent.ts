@@ -1,6 +1,6 @@
-import { Event } from '../../api/contract/Event';
+import { StepEvent } from '../../api/contract/StepEvent';
 
-export class WebRedirectionEvent extends Event {
+export class WebRedirectionEvent extends StepEvent {
   type = "web_redirection_event";
   path: string = "";
 

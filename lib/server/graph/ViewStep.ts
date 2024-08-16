@@ -2,13 +2,14 @@ import { Context } from "../context/index";
 import Step from "./Step";
 import Action from "./Action";
 import { Component } from '../../api/contract/Component';
+import { StepEvent } from "lib/api";
 
 export default class ViewStep extends Step {
   uiType: string = "empty_view_step";
   components?: Component[] = [];
   data?: object = {};
-  stepObserverEvents?: Event[] = [];
-  stepPostableEvents?: Event[] = [];
+  stepObserverEvents?: StepEvent[] = [];
+  stepPostableEvents?: StepEvent[] = [];
   backGroundColor?: string = "#ffffff";
   header?: Component;
   navigation?: Component;

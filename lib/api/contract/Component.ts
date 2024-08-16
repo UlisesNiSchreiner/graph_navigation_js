@@ -1,7 +1,9 @@
+import { StepEvent } from "./StepEvent";
+
 export class Component {
   id: string = "";
   uiType: string = "";
-  onClickEvent?: Event;
+  onClickEvent?: StepEvent;
   data?: object = {};
   position?: string = "center";
 }

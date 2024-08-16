@@ -12,7 +12,7 @@ import {
   SessionData,
   SessionResponse,
 } from "./server";
-import { Connection, Platform, Event } from "./api";
+import { Connection, Platform, StepEvent } from "./api";
 import { ClientNavigation, HttpClient, ClientSessionStorage } from "./client";
 import { RequestData } from './api/contract/RequestData';
 import {
@@ -45,7 +45,7 @@ export {
   ClientNavigation,
   HttpClient,
   ClientSessionStorage,
-  Event,
+  StepEvent,
   Action,
   Bifurcation,
   SessionClient,
