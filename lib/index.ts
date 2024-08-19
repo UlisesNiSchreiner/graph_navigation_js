@@ -14,7 +14,7 @@ import {
 } from "./server";
 import { Connection, Platform, StepEvent } from "./api";
 import { ClientNavigation, HttpClient, ClientSessionStorage } from "./client";
-import { RequestData } from './api/contract/RequestData';
+import { RequestData, RequestPayloadData } from './api/contract/RequestData';
 import {
   MobileViewStep,
   DesktopViewStep,
@@ -39,6 +39,7 @@ export {
   Component,
   Connection,
   RequestData,
+  RequestPayloadData,
   Context,
   Version,
   Template,
