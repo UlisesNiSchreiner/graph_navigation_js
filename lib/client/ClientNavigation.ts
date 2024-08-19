@@ -73,13 +73,13 @@ export default class ClientNavigation {
 
   async navigate(
     connection: Connection,
-    output: any,
+    data: any,
     fetchingCallback: (isFetching: boolean) => {}
   ): Promise<ViewStep> {
     // TODO deberia recibir un objeto data en vez de output
 
     console.log("connection que llega: ", connection)
-    console.log("output que llega: ", output)
+    console.log("output que llega: ", data)
     const shoudFetch =
       connection.forceSync || this.isObjectEmpty(this.responseBuffer.steps);
     console.log("el resultado es", shoudFetch)
@@ -87,9 +87,7 @@ export default class ClientNavigation {
     // If is force sync or local graph is empty should fetch middleend
     if (shoudFetch) {
       const request = new RequestData();
-      request.data = {
-        output: output,
-      };
+      request.data = data
       request.nextStep = connection.stepTo;
       request.session = await this.sessionStorage.getSessionId();
       fetchingCallback(true);

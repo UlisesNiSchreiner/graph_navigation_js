@@ -1,10 +1,11 @@
-export interface Data {
+export interface RequestPayloadData {
   output: Record<string, any>;
+  queryParams?: Record<string, any>;
 }
 export class RequestData {
     token?: string;
     session?: string;
-    data?: Data = {output: {}};
+    data?: RequestPayloadData = {output: {}};
     navigation?: string[];
     nextStep?: string;
     private static _instance: RequestData | null = null;
