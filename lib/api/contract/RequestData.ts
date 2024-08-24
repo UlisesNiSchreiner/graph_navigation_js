@@ -5,7 +5,7 @@ export interface RequestPayloadData {
 export class RequestData {
   token?: string;
   session?: string;
-  data?: RequestPayloadData = { output: {} };
+  data?: RequestPayloadData = { output: {}, queryParams: {}};
   navigation?: string[];
   nextStep?: string;
   private static _instance: RequestData | null = null;
@@ -22,7 +22,7 @@ export class RequestData {
     if (!RequestData._instance) {
       RequestData._instance = new RequestData();
     }
-    RequestData._instance.data = { output: {} }
+    RequestData._instance.data = { output: {}, queryParams: {} }
     return RequestData._instance;
   }
 }

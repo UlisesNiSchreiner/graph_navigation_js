@@ -26,6 +26,14 @@ export class Context {
     }
     return output[key] as T;
   }
+
+  getDataFromQueryParam<T>(key: string): T | null {
+    const queryParam = (this.requestData.data as { queryParams: Record<string, any> })?.queryParams;
+    if (queryParam === undefined || queryParam === null || !(key in queryParam)) {
+      return null;
+    }
+    return queryParam[key] as T;
+  }
   
   getDataFromSession = <T>(key: string): T | null => this.session.getData<T>(key)
 
