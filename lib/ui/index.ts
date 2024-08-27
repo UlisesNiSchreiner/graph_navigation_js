@@ -12,6 +12,7 @@ import { TextType } from "./components/common/text/style";
 import { TextInput } from "./components/common/textInput/TextInput";
 import { ConnectionEvent } from "./event/ConnectionEvent";
 import { WebRedirectionEvent } from "./event/WebRedirectionEvent";
+import { CustomEvent } from "./event/CustomEvent";
 import { SetOutputEvent } from "./event/SetOutputEvent";
 import { Text } from "./components/common/text/Text";
 
@@ -27,6 +28,7 @@ export {
   ConnectionEvent,
   WebRedirectionEvent,
   SetOutputEvent,
+  CustomEvent,
   TextSize,
   Position,
   LayoutTypes,
