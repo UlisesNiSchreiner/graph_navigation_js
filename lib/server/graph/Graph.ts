@@ -107,7 +107,7 @@ export default class Graph extends Node {
     const nodeFromConnections = new Connection();
     nodeFromConnections.id = "continue";
     nodeFromConnections.stepTo = bifurcationNode.id;
-    nodeFromConnections.forceSync = false;
+    nodeFromConnections.forceSync = forceSync;
 
     if (this.checkIfNodeExistInGraph(nodeFrom.id)) {
       this.addConnectionInNodeGraph(nodeFrom.id, nodeFromConnections);
