@@ -31,7 +31,7 @@ export default class ViewStep extends Step {
     this.stepObserverEvents = context.stepProxy!.observerEvents;
     context.stepProxy!.clearObserverEvent();
     await this.afterAction?.(context);
-    
+
     return this;
   }
 
