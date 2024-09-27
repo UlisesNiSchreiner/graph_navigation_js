@@ -14,6 +14,7 @@ import { ConnectionEvent } from "./event/ConnectionEvent";
 import { WebRedirectionEvent } from "./event/WebRedirectionEvent";
 import { CustomEvent } from "./event/CustomEvent";
 import { SetOutputEvent } from "./event/SetOutputEvent";
+import { ObserverEvent } from "./event/ObserverEvents";
 import { Text } from "./components/common/text/Text";
 
 export {
@@ -32,4 +33,5 @@ export {
   TextSize,
   Position,
   LayoutTypes,
+  ObserverEvent
 };

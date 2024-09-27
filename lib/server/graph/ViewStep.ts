@@ -3,12 +3,13 @@ import Step from "./Step";
 import Action from "./Action";
 import { Component } from '../../api/contract/Component';
 import { StepEvent } from "lib/api";
+import { ObserverEvent } from "lib/ui";
 
 export default class ViewStep extends Step {
   uiType: string = "empty_view_step";
   components?: Component[] = [];
   data?: object = {};
-  stepObserverEvents?: StepEvent[] = [];
+  stepObserverEvents?: ObserverEvent[] = [];
   stepPostableEvents?: StepEvent[] = [];
   backGroundColor?: string = "#ffffff";
   header?: Component;
@@ -27,7 +28,10 @@ export default class ViewStep extends Step {
     await this.builderAction?.(context);
     this.components = context.stepProxy!.visualComponents;
     context.stepProxy!.clearComponents();
+    this.stepObserverEvents = context.stepProxy!.observerEvents;
+    context.stepProxy!.clearObserverEvent();
     await this.afterAction?.(context);
+    
     return this;
   }
 

@@ -31,6 +31,7 @@ import {
   TextSize,
   Position,
   LayoutTypes,
+  ObserverEvent
 } from "./ui";
 
 export {
@@ -69,6 +70,7 @@ export {
   TextSize,
   Position,
   LayoutTypes,
+  ObserverEvent
 };
 
 export { TemplateCondition } from "./server/graph/Bifurcation";
