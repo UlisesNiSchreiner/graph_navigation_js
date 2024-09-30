@@ -12,7 +12,7 @@ export default class ViewStep extends Step {
   stepObserverEvents?: ObserverEvent[] = [];
   stepPostableEvents?: StepEvent[] = [];
   backGroundColor?: string = "#ffffff";
-  header?: Component;
+  header?: Component | null;
   navigation?: Component;
 
   constructor(id: string) {
@@ -30,6 +30,8 @@ export default class ViewStep extends Step {
     context.stepProxy!.clearComponents();
     this.stepObserverEvents = context.stepProxy!.observerEvents;
     context.stepProxy!.clearObserverEvent();
+    this.header = context.stepProxy!.header
+    context.stepProxy?.clearHeader()
     await this.afterAction?.(context);
 
     return this;

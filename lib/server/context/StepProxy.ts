@@ -3,7 +3,8 @@ import { Component } from '../../api/contract/Component';
 
 export class StepProxy {
   visualComponents: Component[] = [];
-  observerEvents: ObserverEvent[]= [];
+  observerEvents: ObserverEvent[] = [];
+  header: Component | null = null;
 
   addComponent(component: Component) {
     this.visualComponents = [...this.visualComponents, component];
@@ -19,5 +20,13 @@ export class StepProxy {
 
   clearObserverEvent() {
     this.observerEvents = [];
+  }
+
+  addHeader(component: Component) {
+    this.header = component
+  }
+
+  clearHeader() {
+    this.header = null;
   }
 }
