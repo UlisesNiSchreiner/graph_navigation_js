@@ -11,6 +11,12 @@ export class TextInput extends Component {
     right: 5,
     bottom: 5,
   };
+  padding?: Spacing = {
+    top: 5,
+    left: 5,
+    right: 5,
+    bottom: 5,
+  };
   text?: string = "";
   output: string = "";
 }
