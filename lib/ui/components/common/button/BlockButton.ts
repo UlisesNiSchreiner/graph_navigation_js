@@ -1,4 +1,3 @@
-import { Spacing } from "../style";
 import { Component } from '../../../../api/contract/Component';
 import { StepEvent } from "lib/api";
 
@@ -11,11 +10,5 @@ export class BlockButton extends Component {
   disableObserverEvent?: StepEvent;
   disableOnFetching?: true;
   text?: string = "";
-  spacing?: Spacing = {
-    top: 5,
-    left: 5,
-    right: 5,
-    bottom: 5,
-  };
   initialDisabled: boolean = false;
 }
