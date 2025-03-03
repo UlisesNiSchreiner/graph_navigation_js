@@ -97,9 +97,18 @@ export class Version extends Graph {
 
   public async versionPutNavigate(context: Context): Promise<Response> {
     context.session = SessionData.TODO(); // TODO remove is by default
-    const actualSession = await this.sessionClient.getSesion(
-      context.requestData.session!
-    );
+    let actualSession = null
+      console.log("try get session -------")
+      actualSession = await this.sessionClient.getSesion(
+        context.requestData.session!
+      );
+      console.log("try get session 2 -------")
+    if(actualSession == null) {
+      console.log("catch get session -------")
+      actualSession = await this.sessionClient.createSesion();
+      console.log("catch 2 get session -------") 
+    }
+    
     console.log("session id", actualSession.id)
     context.session.data! = actualSession.data;
     context.session?.id == actualSession.id;

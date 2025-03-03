@@ -12,4 +12,5 @@ export class BlockButton extends Component {
   disableOnFetching?: true;
   text?: string = "";
   initialDisabled: boolean = false;
+  type: "primary" | "outline" = "primary"
 }

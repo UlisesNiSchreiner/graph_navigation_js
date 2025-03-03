@@ -9,7 +9,7 @@ export default class SessionClient {
     return new SessionData();
   }
 
-  async getSesion(id: string): Promise<SessionData> {
+  async getSesion(id: string): Promise<SessionData | null> {
     return new SessionData();
   }
 }
