@@ -39,6 +39,8 @@ export class Context {
 
   setDataInSession = <T>(key: string, value: T): void => this.session.putData<T>(key, value)
 
+  removeDataInSession = (key: string): void => this.session.removeData(key)
+
   getDataFromContext = <T>(key: string): T | null => this.dataProxy.getData<T>(key)
 
   setDataInContext = <T>(key: string, value: T): void => this.dataProxy.putData<T>(key, value)

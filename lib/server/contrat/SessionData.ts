@@ -18,6 +18,12 @@ export default class SessionData {
     return data as T;
   }
 
+  removeData(key: string): void {
+    if (key in this.data) {
+      delete this.data[key];
+    }
+  }
+
   static TODO() {
     if (!SessionData._instance) {
       SessionData._instance = new SessionData();
