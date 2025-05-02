@@ -8,6 +8,7 @@ export class RequestData {
   data?: RequestPayloadData = { output: {}, queryParams: {}};
   navigation?: string[];
   nextStep?: string;
+  image?: File | Blob;
   private static _instance: RequestData | null = null;
 
   getData = <T>(key: string): T | null => {

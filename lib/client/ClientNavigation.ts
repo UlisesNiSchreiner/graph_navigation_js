@@ -74,7 +74,8 @@ export default class ClientNavigation {
   async navigate(
     connection: Connection,
     data: any,
-    fetchingCallback: (isFetching: boolean) => {}
+    fetchingCallback: (isFetching: boolean) => {},
+    image?: File | Blob,
   ): Promise<ViewStep> {
     // TODO deberia recibir un objeto data en vez de output
 
@@ -90,6 +91,10 @@ export default class ClientNavigation {
       request.data = data
       request.nextStep = connection.stepTo;
       request.session = await this.sessionStorage.getSessionId();
+      if (image) {
+        request.image = image; // <- asignar imagen si se provee
+      }
+
       fetchingCallback(true);
       this.clearNavigationHistory();
       this.responseBuffer = await this.fetchMiddleend(request);
