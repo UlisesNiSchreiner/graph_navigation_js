@@ -44,4 +44,8 @@ export class Context {
   getDataFromContext = <T>(key: string): T | null => this.dataProxy.getData<T>(key)
 
   setDataInContext = <T>(key: string, value: T): void => this.dataProxy.putData<T>(key, value)
+
+  setImage = (value: File | Blob | undefined): void => this.requestData.setImage(value)
+
+  getImage = (): File | Blob | undefined => this.requestData.getImage()
 }

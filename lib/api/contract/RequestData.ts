@@ -5,7 +5,7 @@ export interface RequestPayloadData {
 export class RequestData {
   token?: string;
   session?: string;
-  data?: RequestPayloadData = { output: {}, queryParams: {}};
+  data?: RequestPayloadData = { output: {}, queryParams: {} };
   navigation?: string[];
   nextStep?: string;
   image?: File | Blob;
@@ -17,6 +17,14 @@ export class RequestData {
       return null;
     }
     return output[key] as T;
+  }
+
+  getImage(): File | Blob | undefined {
+    return this.image;
+  }
+
+  setImage(value: File | Blob | undefined) {
+    this.image = value;
   }
 
   static TODO() {
