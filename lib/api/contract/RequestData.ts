@@ -1,3 +1,4 @@
+
 export interface RequestPayloadData {
   output: Record<string, any>;
   queryParams?: Record<string, any>;
@@ -8,7 +9,7 @@ export class RequestData {
   data?: RequestPayloadData = { output: {}, queryParams: {} };
   navigation?: string[];
   nextStep?: string;
-  image?: File | Blob;
+  image?: unknown;
   private static _instance: RequestData | null = null;
 
   getData = <T>(key: string): T | null => {
@@ -19,11 +20,11 @@ export class RequestData {
     return output[key] as T;
   }
 
-  getImage(): File | Blob | undefined {
+  getImage(): unknown {
     return this.image;
   }
 
-  setImage(value: File | Blob | undefined) {
+  setImage(value: unknown) {
     this.image = value;
   }
 
