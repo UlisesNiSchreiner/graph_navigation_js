@@ -45,7 +45,11 @@ export class Context {
 
   setDataInContext = <T>(key: string, value: T): void => this.dataProxy.putData<T>(key, value)
 
-  setImage = (value: unknown): void => this.requestData.setImage(value)
+  setImage(value: unknown): void {
+    this.requestData.image = value
+  }
 
-  getImage = (): unknown => this.requestData.getImage()
+  getImage(): unknown {
+    return this.requestData.image
+  }
 }
