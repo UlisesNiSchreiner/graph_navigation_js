@@ -20,11 +20,11 @@ export class RequestData {
     return output[key] as T;
   }
 
-  getImage(): unknown {
+  getImage = (): unknown => {
     return this.image;
   }
 
-  setImage(value: unknown) {
+  setImage = (value: unknown): void => {
     this.image = value;
   }
 
