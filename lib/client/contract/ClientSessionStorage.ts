@@ -9,4 +9,6 @@ export default class ClientSessionStorage {
   async getSessionId(): Promise<string> {
     return "";
   }
+
+  async deleteSessionId(): Promise<void> {}
 }
